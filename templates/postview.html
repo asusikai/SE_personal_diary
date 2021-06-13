@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <title>Diary</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/board/{{username}}">Diary List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/post">New Diary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<h1 align =center >{{username}}'s Diary</h1>
+    <div class = "container">
+    <h1>Title</h1>
+    <h1>{{diary.title}}</h1>
+    <p>Post time : {{diary.post_time[0:4]}}/{{diary.post_time[4:6]}}/{{diary.post_time[6:8]}}    {{diary.post_time[9:11]}}:{{diary.post_time[11:13]}}:{{diary.post_time[13:15]}}</p>
+    <h2>Contents</h2>
+    <p>{{diary.contents}}</p>
+    </div>
+<div class = "container">
+    <button type="button"><a href="{{url_for('updatepost', id = diary._id)}}">Edit Diary</a></button>
+
+    <button type="button"><a href="{{url_for('deletepost', id = diary._id)}}">Delete Diary</a></button>
+    </div>
+</body>
+</html>
+        

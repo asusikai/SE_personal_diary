@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<title>Upload Diary</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/board/{{username}}">Post Diary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/post">New Diary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+        
+  </div>
+</nav>
+<h1 align =center >{{username}}'s Diary</h1>
+<table>
+    <form name="posting" method="POST" action="post" enctype="multipart/form-data">
+    
+    <tbody>
+    <tr>
+        <td>
+            Title
+        </td>
+        <td>
+            <input type="text" name="title" placeholder="title here" autofocus required>
+        </td> 
+    </tr>
+    <tr> 
+        <td>
+            Content
+        </td>
+        <td>
+            <textarea name="contents" rows="25" cols="150" placeholder="content here" required></textarea>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            file upload
+        </td>
+        <td>
+            <input type="file" name="file"/>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <input type="submit">
+        </td>
+    </tr>
+    </tbody>
+    </form>
+</table>
+</body>
+</html>
+

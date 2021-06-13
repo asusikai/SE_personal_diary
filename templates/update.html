@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <title>Edit Diary</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/board/{{username}}">Diary List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/post">New Diary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<h1 align =center >{{username}}'s Diary</h1>
+<form method="POST" name="update_form" enctype="multipart/form-data">
+    <div class = "container">
+
+    <label for="diary.title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{diary.title}}" required/><br><br>
+        
+        <label for="diary.post_time">Post time</label>
+        <input type="text" class="form-control" id="post_time" name="post_time" value="{{diary.post_time}}" required/><br><br>
+        
+        <label for="diary.contents">Contents</label><br>
+        <textarea cols="50" rows="20" class="form-control" id="contents" name="contents">{{diary.contents}}</textarea><br><br>
+    </div>
+<div class = "container">
+    <input type="submit" value = "Edit"/>
+</form>
+    <button type="button"><a href="{{url_for('board', username = diary.uploader)}}">Cancel</a></button>
+    </div>    
+</body>
+</html>
